@@ -21,23 +21,23 @@ class Decision:
             if self.hline[0]>=self.threshold["forward"]:
                 if self.hline[-2]>=self.threshold["fly_over"]:
                     self.de.append("fly_over")
-                    return "fly_over"
+                    return "fly_over",self.threshold["fly_over"]
                 else:
                     self.de.append("turn_ccw")
-                    return "turn_ccw"
+                    return "turn_ccw",self.threshold["fly_over"]
             else:
                 self.de.append("forward")
-                return "forward"
+                return "forward",self.threshold["forward"]
 
         elif self.n==1 or self.n==2:
             if self.hline[0]>=self.threshold["forward"]:
                 self.de.append("turn_ccw")
-                return "turn_ccw"
+                return "turn_ccw",self.threshold["forward"]
             else:
                 self.de.append("forward")
-                return "forward"
+                return "forward",self.threshold["forward"]
         else:
-            return "ERROR"
+            return "ERROR",1
 
     def _memory(self):
         return self.de
