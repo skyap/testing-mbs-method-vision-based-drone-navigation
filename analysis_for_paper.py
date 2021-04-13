@@ -294,7 +294,7 @@ class Analysis():
                     ha='left', va='center', color='r')
 
         # Plot green line between redline
-        if direction == 'forward':
+        if direction == 'forward' or direction == 'fly_over':
             ix.plot((0,240),(decision_line,decision_line),linestyle="--",linewidth=linewidth,color="r")
             ix.plot((240,400),(decision_line,decision_line),linestyle="--",linewidth=5,color=(191/255,1,0,1))
             ix.plot((400,639),(decision_line,decision_line),linestyle="--",linewidth=linewidth,color="r")
